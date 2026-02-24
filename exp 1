@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Alumni Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header>
+        <h1>Online Alumni Management System</h1>
+        <nav>
+            <a href="#">Home</a> |
+            <a href="#register">Register</a> |
+            <a href="#alumni">Alumni</a> |
+            <a href="#events">Events</a> |
+            <a href="#jobs">Jobs</a>
+        </nav>
+        <hr>
+    </header>
+
+    <!-- ================= DASHBOARD ================= -->
+    <section>
+        <h2>Dashboard</h2>
+        <p><strong>Total Alumni:</strong> 150</p>
+        <p><strong>Total Events:</strong> 12</p>
+        <p><strong>Total Jobs:</strong> 8</p>
+        <hr>
+    </section>
+
+    <!-- ================= REGISTRATION FORM ================= -->
+    <section id="register">
+        <h2>Alumni Registration</h2>
+        <form>
+            <label>Full Name:</label><br>
+            <input type="text" name="name" required><br><br>
+
+            <label>Email:</label><br>
+            <input type="email" name="email" required><br><br>
+
+            <label>Password:</label><br>
+            <input type="password" name="password" required><br><br>
+
+            <label>Graduation Year:</label><br>
+            <input type="text" name="year"><br><br>
+
+            <label>Department:</label><br>
+            <input type="text" name="department"><br><br>
+
+            <label>Current Company:</label><br>
+            <input type="text" name="company"><br><br>
+
+            <label>Job Role:</label><br>
+            <input type="text" name="role"><br><br>
+
+            <button type="submit">Register</button>
+        </form>
+        <hr>
+    </section>
+
+    <!-- ================= ALUMNI LIST ================= -->
+    <section id="alumni">
+        <h2>Alumni List</h2>
+        <table border="1" width="100%" cellpadding="8">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Graduation Year</th>
+                <th>Department</th>
+                <th>Company</th>
+                <th>Role</th>
+            </tr>
+            <tr>
+                <td>John Doe</td>
+                <td>john@email.com</td>
+                <td>2020</td>
+                <td>Computer Science</td>
+                <td>Google</td>
+                <td>Software Engineer</td>
+            </tr>
+            <tr>
+                <td>Jane Smith</td>
+                <td>jane@email.com</td>
+                <td>2019</td>
+                <td>Information Tech</td>
+                <td>Microsoft</td>
+                <td>Data Analyst</td>
+            </tr>
+        </table>
+        <hr>
+    </section>
+
+    <!-- ================= EVENTS SECTION ================= -->
+    <section id="events">
+        <h2>Upcoming Events</h2>
+        <ul>
+            <li>
+                <strong>Annual Alumni Meet</strong><br>
+                Date: 20 March 2026<br>
+                Location: College Auditorium
+            </li>
+            <br>
+            <li>
+                <strong>Career Guidance Seminar</strong><br>
+                Date: 15 April 2026<br>
+                Location: Seminar Hall
+            </li>
+        </ul>
+        <hr>
+    </section>
+
+    <!-- ================= JOBS SECTION ================= -->
+    <section id="jobs">
+        <h2>Job Opportunities</h2>
+        <ul>
+            <li>
+                <strong>Software Developer</strong><br>
+                Company: Infosys<br>
+                Location: Bangalore
+            </li>
+            <br>
+            <li>
+                <strong>Web Designer</strong><br>
+                Company: TCS<br>
+                Location: Hyderabad
+            </li>
+        </ul>
+        <hr>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <p>&copy; 2026 Online Alumni Management System | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>
