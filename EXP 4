@@ -1,0 +1,64 @@
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/UserServlet")
+public class UserServlet extends HttpServlet {
+
+    // Display Form
+    protected void doGet(HttpServletRequest request, 
+                         HttpServletResponse response) 
+                         throws ServletException, IOException {
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        out.println("<html>");
+        out.println("<head><title>User Form</title></head>");
+        out.println("<body>");
+
+        out.println("<h2>User Information Form</h2>");
+        out.println("<form method='post' action='UserServlet'>");
+
+        out.println("Name:<br>");
+        out.println("<input type='text' name='username' required><br><br>");
+
+        out.println("Age:<br>");
+        out.println("<input type='number' name='age' required><br><br>");
+
+        out.println("<input type='submit' value='Submit'>");
+
+        out.println("</form>");
+        out.println("</body>");
+        out.println("</html>");
+    }
+
+    // Process Form Data
+    protected void doPost(HttpServletRequest request, 
+                          HttpServletResponse response) 
+                          throws ServletException, IOException {
+
+        String name = request.getParameter("username");
+        String age = request.getParameter("age");
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        out.println("<html>");
+        out.println("<head><title>Submitted Details</title></head>");
+        out.println("<body>");
+
+        out.println("<h2>Submitted Details</h2>");
+        out.println("<p><strong>Name:</strong> " + name + "</p>");
+        out.println("<p><strong>Age:</strong> " + age + "</p>");
+
+        out.println("<br><a href='UserServlet'>Go Back</a>");
+
+        out.println("</body>");
+        out.println("</html>");
+    }
+}
