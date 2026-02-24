@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alumni Registration Form Validation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<h2>Online Alumni Registration</h2>
+
+<form onsubmit="return validateForm()">
+
+    <label>Full Name:</label><br>
+    <input type="text" id="name"><br><br>
+
+    <label>Email:</label><br>
+    <input type="text" id="email"><br><br>
+
+    <label>Password:</label><br>
+    <input type="password" id="password"><br><br>
+
+    <label>Graduation Year:</label><br>
+    <input type="text" id="year"><br><br>
+
+    <label>Department:</label><br>
+    <input type="text" id="department"><br><br>
+
+    <label>Current Company:</label><br>
+    <input type="text" id="company"><br><br>
+
+    <label>Job Role:</label><br>
+    <input type="text" id="role"><br><br>
+
+    <button type="submit">Register</button>
+
+</form>
+
+<script>
+
+function validateForm() {
+
+    var name = document.getElementById("name").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var password = document.getElementById("password").value.trim();
+    var year = document.getElementById("year").value.trim();
+    var department = document.getElementById("department").value.trim();
+    var company = document.getElementById("company").value.trim();
+    var role = document.getElementById("role").value.trim();
+
+    // Name validation (letters and spaces only, minimum 3 characters)
+    var namePattern = /^[A-Za-z ]{3,}$/;
+    if (!namePattern.test(name)) {
+        alert("Name must contain only letters and minimum 3 characters.");
+        return false;
+    }
+
+    // Email validation
+    var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!emailPattern.test(email)) {
+        alert("Enter a valid email address.");
+        return false;
+    }
+
+    // Password validation (minimum 6 characters)
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+    }
+
+    // Graduation Year validation (4 digits only)
+    var yearPattern = /^[0-9]{4}$/;
+    if (!yearPattern.test(year)) {
+        alert("Enter valid 4-digit graduation year.");
+        return false;
+    }
+
+    // Department validation
+    if (department === "") {
+        alert("Department cannot be empty.");
+        return false;
+    }
+
+    // Company validation
+    if (company === "") {
+        alert("Company cannot be empty.");
+        return false;
+    }
+
+    // Role validation
+    if (role === "") {
+        alert("Job Role cannot be empty.");
+        return false;
+    }
+
+    alert("Registration Successful!");
+    return true;
+}
+
+</script>
+
+</body>
+</html>
