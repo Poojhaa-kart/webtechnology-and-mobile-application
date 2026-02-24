@@ -1,0 +1,64 @@
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/MethodDemoServlet")
+public class MethodDemoServlet extends HttpServlet {
+
+    // Handles GET Request
+    protected void doGet(HttpServletRequest request, 
+                         HttpServletResponse response) 
+                         throws ServletException, IOException {
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        String name = request.getParameter("username");
+
+        out.println("<html><head><title>GET vs POST Demo</title></head><body>");
+
+        out.println("<h2>GET Method Form</h2>");
+        out.println("<form method='get' action='MethodDemoServlet'>");
+        out.println("Name: <input type='text' name='username'>");
+        out.println("<input type='submit' value='Submit using GET'>");
+        out.println("</form><br>");
+
+        out.println("<h2>POST Method Form</h2>");
+        out.println("<form method='post' action='MethodDemoServlet'>");
+        out.println("Name: <input type='text' name='username'>");
+        out.println("<input type='submit' value='Submit using POST'>");
+        out.println("</form><hr>");
+
+        if (name != null) {
+            out.println("<h3>Request Processed Using: GET</h3>");
+            out.println("<p>Entered Name: " + name + "</p>");
+            out.println("<p><b>Observation:</b> Data is visible in URL.</p>");
+        }
+
+        out.println("</body></html>");
+    }
+
+    // Handles POST Request
+    protected void doPost(HttpServletRequest request, 
+                          HttpServletResponse response) 
+                          throws ServletException, IOException {
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        String name = request.getParameter("username");
+
+        out.println("<html><head><title>GET vs POST Demo</title></head><body>");
+
+        out.println("<h3>Request Processed Using: POST</h3>");
+        out.println("<p>Entered Name: " + name + "</p>");
+        out.println("<p><b>Observation:</b> Data is NOT visible in URL.</p>");
+
+        out.println("<br><a href='MethodDemoServlet'>Go Back</a>");
+        out.println("</body></html>");
+    }
+}
