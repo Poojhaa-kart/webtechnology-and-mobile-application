@@ -1,0 +1,54 @@
+HTML
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GET and POST Demo</title>
+</head>
+<body>
+
+<h2>GET Method</h2>
+<form action="GetPostServlet" method="get">
+    Name: <input type="text" name="name">
+    <input type="submit" value="Send GET">
+</form>
+
+<h2>POST Method</h2>
+<form action="GetPostServlet" method="post">
+    Name: <input type="text" name="name">
+    <input type="submit" value="Send POST">
+</form>
+
+</body>
+</html>
+
+Servlet (GetPostServlet.java):
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class GetPostServlet extends HttpServlet {
+
+    public void doGet(HttpServletRequest req, HttpServletResponse res)
+            throws IOException {
+
+        res.setContentType("text/html");
+        PrintWriter out = res.getWriter();
+
+        String name = req.getParameter("name");
+
+        out.println("<h2>GET Method Used</h2>");
+        out.println("Name: " + name);
+    }
+
+    public void doPost(HttpServletRequest req, HttpServletResponse res)
+            throws IOException {
+
+        res.setContentType("text/html");
+        PrintWriter out = res.getWriter();
+
+        String name = req.getParameter("name");
+
+        out.println("<h2>POST Method Used</h2>");
+        out.println("Name: " + name);
+    }
+}
